@@ -36,10 +36,6 @@ public class Todo {
     private Boolean completed = false;
     private Date createdAt = new Date();
 
-    public Todo(String title) {
-        this.title = title;
-    }
-
     public void setTitle(String title) {
         if (title != null) {
             this.title = title;
