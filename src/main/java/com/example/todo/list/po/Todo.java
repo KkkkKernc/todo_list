@@ -1,10 +1,6 @@
-package com.example.todo.list.models;
+package com.example.todo.list.po;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.Accessors;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -12,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -23,8 +20,9 @@ import java.util.Date;
 @NoArgsConstructor
 @Accessors(chain = true)
 @Document(collection = "todos")
-@JsonIgnoreProperties(value = {"createdAt"}, allowGetters = true)
+@ToString
 public class Todo {
+
     @Id
     private String id;
 
@@ -33,8 +31,8 @@ public class Todo {
     @Indexed(unique = true)
     private String title;
 
-    private Boolean completed = false;
-    private Date createdAt = new Date();
+    private Boolean completed;
+    private Date createdAt;
 
     public void setTitle(String title) {
         if (title != null) {
@@ -47,5 +45,4 @@ public class Todo {
             this.completed = completed;
         }
     }
-
 }
