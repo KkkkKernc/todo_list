@@ -34,15 +34,17 @@ public class Todo {
     private Boolean completed;
     private Date createdAt;
 
-    public void setTitle(String title) {
+    public Todo setTitle(String title) {
         if (title != null) {
             this.title = title;
         }
+        return this;
     }
 
-    public void setCompleted(Boolean completed) {
+    public Todo setCompleted(Boolean completed) {
         if (completed != null) {
             this.completed = completed;
         }
+        return this;
     }
 }
