@@ -1,2 +1,2 @@
 # todo_list
-Todo List Demo (Spring/mongoDB/)
+Todo List Demo (Spring/mongoDB)
